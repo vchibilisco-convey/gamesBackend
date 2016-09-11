@@ -1,0 +1,24 @@
+{
+  "name": "games-backend",
+  "version": "1.0.0",
+  "description": "Backend for the games application. Its a nodejs + express restfull server.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/gonmercado/gamesBackend.git"
+  },
+  "author": "Gonzalo Mercado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/gonmercado/gamesBackend/issues"
+  },
+  "homepage": "https://gitlab.com/gonmercado/gamesBackend#README",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.0"
+  }
+}

@@ -1,6 +1,6 @@
 #Games Backend
 
-##Node.js + Express restfull server
+##**Node.js** + **Express** restfull server
 
 ###This is the backend for the Games application.
 
