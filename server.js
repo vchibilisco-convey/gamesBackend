@@ -43,6 +43,14 @@ router.route('/games')
       }
       res.json({message: 'Game "' + game.name + '" Created'})
     });
+  })
+  .get(function(req, res){
+    Game.find(function(err, games){
+      if(err){
+        res.send(err);
+      }
+      res.json(games)
+    });
   });
 
 // REGISTER OUR ROUTES -------------------------------
