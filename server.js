@@ -1,9 +1,17 @@
+//TODO: Add error handling to avoid repeated code
+//TODO: Add logger to log to disk and console
+//TODO: Add JWT authentication
+//TODO: Add unit testing
+//TODO: Create router files
+//TODO: create controllers, per entity, one for games.
+
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/games');
+//TODO: Add settings file for CS and settings
+mongoose.connect('mongodb://10.4.3.69/games');
 
 var Game = require('./app/models/game');
 
@@ -50,6 +58,40 @@ router.route('/games')
         res.send(err);
       }
       res.json(games)
+    });
+  });
+
+router.route('/games/:game_id')
+  .get(function(req, res){
+    Game.findById(req.params.game_id, function(err, game){
+      if(err){
+        res.send(err);
+      }
+      res.json(game);
+    })
+  })
+  .delete(function(req, res){
+    Game.remove({
+      _id: req.params.game_id
+    }, function(err, game){
+      if(err){
+        res.send(err);
+      }
+      res.json({message: 'game "' + game.name + '" Succesfully deleted.'});
+    })
+  })
+  .put(function(req, res){
+    Game.findById(req.params.game_id, function(err, game){
+      if(err){
+        res.send(err);
+      }
+      game.name = req.body.name;
+      game.save(function(err){
+        if(err){
+          res.send(err);
+        }
+        res.json({message: 'Game "' + game.id + '" Updated with: "' + game.name + '"'});
+      });
     });
   });
 
