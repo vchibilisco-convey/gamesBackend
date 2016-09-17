@@ -14,7 +14,7 @@ var mongoose = require('mongoose');
 //TODO: Add settings file for CS and settings
 mongoose.connect('mongodb://localhost/games');
 
-var Game = require('./app/models/game');
+var Game = require('./classes/game');
 
 
 // configure app to use bodyParser()
