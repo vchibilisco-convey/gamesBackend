@@ -15,7 +15,6 @@ router.route('/')
   })
   .get(function(req, res, next){
     GameModel.findAll(function (err, games) {
-
       if(err){
         return next(err);
       }

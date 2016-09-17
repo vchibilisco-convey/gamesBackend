@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+require('../classes');
 
 router.use(require('../middlewares/auth'));
 router.use('/games', require('./game.controller'));
