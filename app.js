@@ -2,15 +2,11 @@
 //TODO: Add logger to log to disk and console
 //TODO: Add JWT authentication / ldap
 //TODO: Add unit testing
-//TODO: Create router files
-//TODO: create controllers, per entity, one for games.
 
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost:27017/games');
+require('./classes');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
