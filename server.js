@@ -12,7 +12,7 @@ var mongoose = require('mongoose');
 
 
 //TODO: Add settings file for CS and settings
-mongoose.connect('mongodb://10.4.3.69/games');
+mongoose.connect('mongodb://localhost/games');
 
 var Game = require('./app/models/game');
 
