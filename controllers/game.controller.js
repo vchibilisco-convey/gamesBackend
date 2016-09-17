@@ -1,7 +1,5 @@
 var express = require('express');
-
 var router = express.Router();
-
 var Game = require('../classes/game');
 var GameModel = require('../models/game.model');
 
@@ -17,6 +15,7 @@ router.route('/')
   })
   .get(function(req, res, next){
     GameModel.findAll(function (err, games) {
+
       if(err){
         return next(err);
       }
