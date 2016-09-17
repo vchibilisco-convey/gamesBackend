@@ -3,6 +3,7 @@ var router = express.Router();
 require('../classes');
 
 router.use(require('../middlewares/auth'));
+router.use(require('../middlewares/log'));
 router.use('/games', require('./game.controller'));
 router.use(require('../middlewares/error'));
 
