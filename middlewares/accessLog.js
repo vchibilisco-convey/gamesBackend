@@ -5,9 +5,10 @@ var morgan = require('morgan');
 var express = require('express');
 var router = express.Router();
 
-var logDirectory = path.join(__dirname, '../logs/access');
+var logDirectory = path.join(__dirname, '../logs');
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
 
-// ensure log directory exists
+logDirectory = path.join(logDirectory, 'access');
 fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
 
 var accessLogStream = FileStreamRotator.getStream({
