@@ -15,6 +15,8 @@ router.route('/')
   })
   .get(function(req, res, next){
     GameModel.findAll(function (err, games) {
+      err = new Error();
+      err.status = '404';
       if(err){
         return next(err);
       }
