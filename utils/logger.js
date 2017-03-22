@@ -17,6 +17,7 @@ var logger;
 
 if (!logger) {
   winston.handleExceptions(new winston.transports.File({ filename: exceptionsFileName }));
+  winston.add(require('winston-daily-rotate-file'));
 
   logger = new winston.Logger({
     level: 'verbose',
