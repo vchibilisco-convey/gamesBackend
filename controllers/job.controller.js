@@ -1,32 +1,32 @@
 var express = require('express');
 var router = express.Router();
-var Game = require('../classes/game');
-var GameModel = require('../models/game.model');
+var Game = require('../classes/job');
+var JobModel = require('../models/jobs.model');
 
 // more routes for our API will happen here
 router.route('/')
   .post(function(req, res, next){
-    GameModel.create(req.body, function(err, game){
+    JobModel.create(req.body, function(err, job){
       if(err){
         return next(err)
       }
-      res.json({message: 'Game "' + game.name + '" Created'})
+      res.json({message: 'Job "' + job.name + '" Created'})
     });
   })
   .get(function(req, res, next){
-    GameModel.findAll(function (err, games) {
-      err = new Error();
-      err.status = '404';
+    JobModel.findAll(function (err, jobs) {
+      /*err = new Error();
+      err.status = '404';*/
       if(err){
         return next(err);
       }
-      res.json(games)
+      res.json(jobs)
     })
   });
 
-router.route('/:game_id')
+/*router.route('/:game_id')
   .get(function(req, res, next){
-    GameModel.findById(req.params.game_id, function(err, game){
+    JobModel.findById(req.params.game_id, function(err, game){
       if(err){
         return next(err);
       }
@@ -34,7 +34,7 @@ router.route('/:game_id')
     });
   })
   .delete(function(req, res, next){
-    GameModel.deleteById(req.params.game_id, function(err, response){
+    JobModel.deleteById(req.params.game_id, function(err, response){
       if(err){
         return next(err);
       }
@@ -43,12 +43,12 @@ router.route('/:game_id')
     });
   })
   .put(function(req, res, next){
-    GameModel.updateById(req.params.game_id, req.body, function(err, game){
+    JobModel.updateById(req.params.game_id, req.body, function(err, game){
       if(err){
         return next(err);
       }
       res.json({message: 'Game "' + game.id + '" Updated with: "' + game.name + '"'});
     });
-  });
+  });*/
 
 module.exports = router;
